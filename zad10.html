@@ -30,18 +30,17 @@
 		- Przykładowo, dla wartości minimalnej (wpisanej w pole input) równej 21, nowa tablica ma wyglądać następująco: Array(2) [ 37, 26 ].
 		*/
 
-		const ageArray = [37, 26, 18, 16, 3]
+
 
 		document.querySelector('.button').addEventListener('click', function () {
 			const inputValue = document.querySelector('.input').value
-
+			const ageArray = [37, 26, 18, 16, 3]
 			const arrayModify = ageArray.filter(function (el, index, array) {
 				return (el > inputValue)
 			})
-			
-			const output = document.querySelector('.info__output')
-			return output.innerHTML = arrayModify
 
+			const output = document.querySelector('.info__output')
+			output.innerHTML = arrayModify
 		})
 
 
