@@ -45,26 +45,19 @@
 			- W przypadku naszych tablic z obiektami reprezentującymi poszczególne piosenki, mamy otrzymać: 'Następna stacja, Ayo'.
 			*/
 			const concatArrays = piosenkiPolskie.concat(piosenkiZagraniczne)
+				.map(function (el, index, array) {
+					return { id: el.id, title: el.title, artist: el.artist, duration: Math.round(el.duration / 60) }
+				})
+				.filter(function (el, index, array) {
+					return (el.duration > 3)
+				})
+				.map(function (el, index, array) {
+					return el.title
+				})
+				.join(', ')
+			alert(concatArrays)
 
-			const reduceArrays = concatArrays.map(function (el, index, array) {
-				return {id: el.id, title: el.title, artist: el.artist,   duration: Math.round(el.duration /60)}
-			})
-			console.log(reduceArrays)
 
-			const filterArray = reduceArrays.filter(function(el,index,array){
-				return (el.duration > 3)
-			})
-			console.log(filterArray)
-
-			const mapArray = filterArray.map(function(el,index,array){
-				return el.title
-			})
-			console.log(mapArray)
-
-			const joinArray = mapArray.join(', ')
-			alert(joinArray)
-
-			
 		});
 
 	</script>
