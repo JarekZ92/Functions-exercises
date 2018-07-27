@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <html lang="pl">
+
 <head>
 	<title>Zadanie 14. Metody .map(), .filter(), .reduce()</title>
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<meta name="Author" content="Łukasz Krawczyk (Web Developer / Graphic &amp; Web Designer)" />
 </head>
+
 <body>
 
 	<button type="button" class="button">Wyświetl w alercie</button>
 
 	<script>
-		
+
 		document.querySelector('.button').addEventListener('click', () => {
 			const piosenkiPolskie = [
 				{ id: 1, title: 'Następna stacja', artist: 'Taco Hemingway', duration: 250 },
@@ -42,9 +44,31 @@
 			
 			- W przypadku naszych tablic z obiektami reprezentującymi poszczególne piosenki, mamy otrzymać: 'Następna stacja, Ayo'.
 			*/
+			const concatArrays = piosenkiPolskie.concat(piosenkiZagraniczne)
+
+			const reduceArrays = concatArrays.map(function (el, index, array) {
+				return {id: el.id, title: el.title, artist: el.artist,   duration: Math.round(el.duration /60)}
+			})
+			console.log(reduceArrays)
+
+			const filterArray = reduceArrays.filter(function(el,index,array){
+				return (el.duration > 3)
+			})
+			console.log(filterArray)
+
+			const mapArray = filterArray.map(function(el,index,array){
+				return el.title
+			})
+			console.log(mapArray)
+
+			const joinArray = mapArray.join(', ')
+			alert(joinArray)
+
+			
 		});
-		
+
 	</script>
 
 </body>
+
 </html>
