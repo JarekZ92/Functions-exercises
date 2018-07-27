@@ -1,21 +1,25 @@
 <!DOCTYPE html>
 <html lang="pl">
+
 <head>
 	<title>Zadanie 10. Metoda .filter()</title>
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<meta name="Author" content="Łukasz Krawczyk (Web Developer / Graphic &amp; Web Designer)" />
 </head>
+
 <body>
 
-	<input type="number" placeholder="Wartość minimalna" class="input" />
+	<input type="number" value="" placeholder="Wartość minimalna" class="input" />
 
 	<button type="button" class="button">Wyświetl</button>
 
-	<p class="info">Wiek powyżej wartości minimalnej: <span class="info__output">???</span></p>
+	<p class="info">Wiek powyżej wartości minimalnej:
+		<span class="info__output">???</span>
+	</p>
 
 	<script>
-		
+
 		/*
 		- Dana jest tablica z wiekiem (latami) [37, 26, 18, 16, 3].
 		
@@ -25,8 +29,24 @@
 		
 		- Przykładowo, dla wartości minimalnej (wpisanej w pole input) równej 21, nowa tablica ma wyglądać następująco: Array(2) [ 37, 26 ].
 		*/
-		
+
+		const ageArray = [37, 26, 18, 16, 3]
+
+		document.querySelector('.button').addEventListener('click', function () {
+			const inputValue = document.querySelector('.input').value
+
+			const arrayModify = ageArray.filter(function (el, index, array) {
+				return (el > inputValue)
+			})
+			
+			const output = document.querySelector('.info__output')
+			return output.innerHTML = arrayModify
+
+		})
+
+
 	</script>
 
 </body>
+
 </html>
