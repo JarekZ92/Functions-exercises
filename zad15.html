@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="pl">
+
 <head>
 	<title>Zadanie 15. Fetch API - pokazanie zasobu</title>
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<meta name="Author" content="Łukasz Krawczyk (Web Developer / Graphic &amp; Web Designer)" />
 </head>
+
 <body>
-	
+
 	<script>
 		/*
 		- Korzystając z metody .fetch(), pobierz w formacie JSON wpis o id=1.
@@ -18,9 +20,18 @@
 		
 		- W przypadku powodzenia, w konsoli ma zostać wyświetlona - oczywiście już wcześniej "zjsonowana" - odpowiedź serwera.
 		*/
+		fetch('https://jsonplaceholder.typicode.com/posts/1')
+			.then(response => {
+				return response.json()
+			})
+			
+			.then(newJSON => {
+				console.log(newJSON)
+			})
+			.catch(error => alert('Błąd:/n' + error))
 
-		
 	</script>
 
 </body>
+
 </html>
