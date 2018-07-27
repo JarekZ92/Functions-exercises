@@ -1,19 +1,23 @@
 <!DOCTYPE html>
 <html lang="pl">
+
 <head>
 	<title>Zadanie 12. Metoda .reduce()</title>
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<meta name="Author" content="Łukasz Krawczyk (Web Developer / Graphic &amp; Web Designer)" />
 </head>
+
 <body>
 
 	<button type="button" class="button">Wyświetl</button>
 
-	<p class="info">Suma ludności, ale nie uwzględniając Kanady: <span class="info__output">???</span></p>
+	<p class="info">Suma ludności, ale nie uwzględniając Kanady:
+		<span class="info__output">???</span>
+	</p>
 
 	<script>
-		
+
 		document.querySelector('.button').addEventListener('click', () => {
 			const kraje = [
 				{ country: 'Francja', population: 67247000, year: 2018 },
@@ -33,9 +37,21 @@
 			
 			- Oczekiwany wynik, w przypadku naszej tablicy obiektów, to 254450475.
 			*/
+
+			const deleteKanada = kraje.filter(function (el, index, array) {
+				return el.country !== 'Kanada'
+			})
+
+			const reduceFunction = deleteKanada.reduce(function (reduced, el, index, array) {
+				return reduced + el.population
+			}, 0)
+
+			const showCountrysWithoutKanada = document.querySelector('.info__output')
+			showCountrysWithoutKanada.innerHTML = reduceFunction
 		});
-		
+
 	</script>
 
 </body>
+
 </html>
