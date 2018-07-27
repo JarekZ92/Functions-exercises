@@ -1,37 +1,28 @@
+
 <!DOCTYPE html>
 <html lang="pl">
-
 <head>
-	<title>Zadanie 15. Fetch API - pokazanie zasobu</title>
+	<title>Zadanie 17. Fetch API &mdash; tworzenie zasobu (POST)</title>
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<meta name="Author" content="Łukasz Krawczyk (Web Developer / Graphic &amp; Web Designer)" />
 </head>
-
 <body>
-
+	
 	<script>
 		/*
-		- Korzystając z metody .fetch(), pobierz w formacie JSON wpis o id=1.
+		- Korzystając z metody .fetch() oraz metody komunikacji POST, dodaj wpis o parametrach: userId: 1, title: 'Kot w butach', body: 'Lorem ipsum...'.
 		
-		- https://jsonplaceholder.typicode.com/posts/1
+		- https://jsonplaceholder.typicode.com/posts
+		
+		- Pamiętaj, że dane wysyłane na serwer muszą być ciągiem znaków.
 		
 		- W przypadku błędu, w konsoli ma zostać wyświetlony komunikat w postaci: 'Błąd:\n' + error.
 		
 		- W przypadku powodzenia, w konsoli ma zostać wyświetlona - oczywiście już wcześniej "zjsonowana" - odpowiedź serwera.
 		*/
-		fetch('https://jsonplaceholder.typicode.com/posts/1')
-			.then(response => {
-				return response.json()
-			})
-			
-			.then(newJSON => {
-				console.log(newJSON)
-			})
-			.catch(error => alert('Błąd:\n' + error))
 
 	</script>
 
 </body>
-
 </html>
